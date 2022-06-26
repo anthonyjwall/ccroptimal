@@ -4,7 +4,7 @@
 export PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # start the Python virtual environment
-source ~/.venvs/ccropt/bin/activate
+source ~/.venvs/ccroptimal/bin/activate
 
 # add the plotting paths
 export PATH=$PATH:$PROJECT_ROOT/env/yaaade/yaaade/plot
