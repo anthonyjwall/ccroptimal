@@ -20,8 +20,10 @@ N 40 120 60 120 {
 lab=vss}
 N 40 90 40 120 {
 lab=vss}
-N 40 -110 70 -110 {}
-N 40 -110 40 -90 {}
+N 40 -110 70 -110 {
+lab=vss}
+N 40 -110 40 -90 {
+lab=vss}
 C {sky130_fd_pr/nfet_01v8.sym} 20 60 0 0 {name=M1
 L=0.15
 W=1
@@ -55,4 +57,4 @@ C {devices/opin.sym} 120 0 0 0 {name=p2 lab=OUT}
 C {devices/iopin.sym} 70 -60 0 0 {name=p3 lab=nwell}
 C {devices/iopin.sym} 70 60 0 0 {name=p4 lab=pwell}
 C {devices/iopin.sym} 50 120 0 0 {name=p5 lab=vss}
-C {devices/iopin.sym} 60 -110 0 0 {name=p6 lab=vss}
+C {devices/iopin.sym} 60 -110 0 0 {name=p6 lab=vdd}
