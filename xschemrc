@@ -162,6 +162,7 @@ set disable_unique_names 0
 
 #set terminal {xfce4-terminal}
 set terminal {xterm -geometry 100x35 -fn 9x15 -bg black -fg green -cr green -ms green }
+#set terminal {xterm -geometry 100x35 -bg black -fg green -cr green -ms green }
 ## lxterminal is not OK since it will not inherit env vars: 
 ## In order to reduce memory usage and increase the performance, all instances
 ## of the terminal are sharing a single process. LXTerminal is part of LXDE

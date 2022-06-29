@@ -32,6 +32,9 @@ N 40 80 40 100 {
 lab=GND}
 N 120 0 200 0 {
 lab=out}
+N 150 -0 150 20 {
+lab=out}
+N 150 80 150 100 {}
 C {devices/code.sym} -380 -240 0 0 {name=SIM only_toplevel=false value="
 .param temp=27
 
@@ -88,7 +91,7 @@ value="
 * Manually adding standard cell models
 .include /pdk/open_pdks/install/share/pdk/sky130A/libs.ref/sky130_fd_sc_hs/spice/sky130_fd_sc_hs.spice
 "}
-C {devices/vsource.sym} -200 30 0 0 {name=V1 value="PULSE(0 1.8 0 10p 10p 10n 20n)"}
+C {devices/vsource.sym} -200 30 0 0 {name=V1 value="PULSE(0 1.8 0 0.1p 0.1p 10n 20n)"}
 C {devices/gnd.sym} -200 80 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -400 30 0 0 {name=V2 value=1.8}
 C {devices/vdd.sym} -400 -20 0 0 {name=l2 lab=VDD}
@@ -97,4 +100,9 @@ C {devices/vdd.sym} 40 -100 0 0 {name=l4 lab=VDD}
 C {devices/gnd.sym} 40 100 0 0 {name=l5 lab=GND}
 C {devices/opin.sym} 200 0 0 0 {name=p1 lab=out}
 C {devices/lab_wire.sym} -110 0 0 0 {name=l6 sig_type=std_logic lab=in}
-C {core/sqar_inv_b/sqar_inv_b.sym} 0 0 0 0 {name=x1}
+C {core/sqar_inv_c/sqar_inv_c.sym} 0 0 0 0 {name=x1}
+C {devices/capa.sym} 150 50 0 0 {name=C1
+m=1
+value=10f
+device="ceramic capacitor"}
+C {devices/gnd.sym} 150 100 0 0 {name=l7 lab=GND}
