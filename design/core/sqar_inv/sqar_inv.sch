@@ -21,12 +21,12 @@ lab=vss}
 N 40 90 40 120 {
 lab=vss}
 N 40 -110 70 -110 {
-lab=vss}
+lab=vdd}
 N 40 -110 40 -90 {
-lab=vss}
+lab=vdd}
 C {sky130_fd_pr/nfet_01v8.sym} 20 60 0 0 {name=M1
-L=0.15
-W=1
+L=L_SQ
+W=W_CN
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -39,8 +39,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 20 -60 0 0 {name=M2
-L=0.15
-W=1
+L=L_SQ
+W=W_CP
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
