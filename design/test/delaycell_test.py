@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 from yaaade.spice.ngspice import NgSpiceInterface
 import yaaade.tools.xschem as xschem
-from yaaade.plot.plot import *sourc
+from yaaade.plot.plot import *
 from yaaade.measure.measure import *
 
 # import global settings
