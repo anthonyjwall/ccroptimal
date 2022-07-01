@@ -73,7 +73,7 @@ lab=Ph_OUT}
 N -120 -90 -60 -90 {
 lab=Ph_IN}
 N -0 -160 30 -160 {
-lab=#net2}
+lab=nwell}
 C {sky130_fd_pr/pfet_01v8.sym} -20 -160 0 0 {name=M_PA
 L=L_A
 W=1
