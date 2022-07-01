@@ -4,52 +4,71 @@ K {}
 V {}
 S {}
 E {}
+N -220 -160 -220 -140 {
+lab=VDD}
+N -220 -80 -220 -60 {
+lab=GND}
+N 210 -180 210 -160 {
+lab=VDD}
+N 270 -180 270 -160 {
+lab=VDD}
+N 270 140 270 160 {
+lab=GND}
+N 210 140 210 160 {
+lab=GND}
 N -60 0 0 0 {
 lab=in}
 N -200 0 -60 0 {
 lab=in}
 N -200 60 -200 80 {
 lab=GND}
-N 40 60 40 80 {
-lab=GND}
-N 40 80 60 80 {
-lab=GND}
-N 60 60 60 80 {
-lab=GND}
-N 40 -80 40 -60 {
-lab=VDD}
-N 40 -80 60 -80 {
-lab=VDD}
-N 60 -80 60 -60 {
-lab=VDD}
-N -400 60 -400 80 {
-lab=GND}
-N -400 -20 -400 0 {
-lab=VDD}
-N 40 -100 40 -80 {
-lab=VDD}
-N 40 80 40 100 {
-lab=GND}
-N 120 0 200 0 {
+N 580 -0 620 -0 {
 lab=out}
-N 150 -0 150 20 {
+N 610 0 610 20 {
 lab=out}
-N 150 80 150 100 {
+N 610 80 610 100 {
 lab=GND}
-C {devices/code.sym} -380 -240 0 0 {name=SIM only_toplevel=false value="
+N 130 -200 130 -160 {
+lab=CNTL}
+N 130 -390 130 -370 {
+lab=VDD}
+N 60 -380 60 -370 {
+lab=VDD}
+N 60 -380 130 -380 {
+lab=VDD}
+N 60 -310 60 -300 {
+lab=CNTL}
+N 60 -300 130 -300 {
+lab=CNTL}
+N 130 -300 130 -200 {
+lab=CNTL}
+N 130 -310 130 -300 {
+lab=CNTL}
+C {devices/vsource.sym} -220 -110 0 0 {name=V1 value=1.8}
+C {devices/vdd.sym} -220 -160 0 0 {name=l1 lab=VDD}
+C {devices/gnd.sym} -220 -60 0 0 {name=l2 lab=GND}
+C {devices/vdd.sym} 210 -180 0 0 {name=l3 lab=VDD}
+C {devices/vdd.sym} 270 -180 0 0 {name=l4 lab=VDD}
+C {devices/gnd.sym} 210 160 0 0 {name=l5 lab=GND}
+C {devices/gnd.sym} 270 160 0 0 {name=l6 lab=GND}
+C {devices/vsource.sym} -200 30 0 0 {name=V2 value="PULSE(0 1.8 0 0.1p 0.1p 100n 200n)"}
+C {devices/gnd.sym} -200 80 0 0 {name=l7 lab=GND}
+C {devices/lab_wire.sym} -110 0 0 0 {name=l8 sig_type=std_logic lab=in}
+C {devices/opin.sym} 620 0 0 0 {name=p1 lab=out}
+C {devices/code.sym} -190 -580 0 0 {name=SIM only_toplevel=false value="
 .param temp=27
 
 
 
 *.op
 *.ac dec 10 1 10G
-.tran 0.01n 50n
+*.tran 0.01n 5u
 
 
 .save all 
 
 "}
-C {devices/code.sym} -140 -230 0 0 {name=TT_MODELS
+C {devices/code.sym} 50 -570 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -92,18 +111,17 @@ value="
 * Manually adding standard cell models
 .include /pdk/open_pdks/install/share/pdk/sky130A/libs.ref/sky130_fd_sc_hs/spice/sky130_fd_sc_hs.spice
 "}
-C {devices/vsource.sym} -200 30 0 0 {name=V1 value="PULSE(0 1.8 0 0.1p 0.1p 10n 20n)"}
-C {devices/gnd.sym} -200 80 0 0 {name=l1 lab=GND}
-C {devices/vsource.sym} -400 30 0 0 {name=V2 value=1.8}
-C {devices/vdd.sym} -400 -20 0 0 {name=l2 lab=VDD}
-C {devices/gnd.sym} -400 80 0 0 {name=l3 lab=GND}
-C {devices/vdd.sym} 40 -100 0 0 {name=l4 lab=VDD}
-C {devices/gnd.sym} 40 100 0 0 {name=l5 lab=GND}
-C {devices/opin.sym} 200 0 0 0 {name=p1 lab=out}
-C {devices/lab_wire.sym} -110 0 0 0 {name=l6 sig_type=std_logic lab=in}
-C {devices/capa.sym} 150 50 0 0 {name=C1
+C {devices/capa.sym} 610 50 0 0 {name=C1
 m=1
-value=10f
+value=100f
 device="ceramic capacitor"}
-C {devices/gnd.sym} 150 100 0 0 {name=l7 lab=GND}
-C {core/sqar_inv/sqar_inv.sym} 0 0 0 0 {name=x1 W_CN=1 W_CP=1 L_SQ=1}
+C {devices/gnd.sym} 610 100 0 0 {name=l9 lab=GND}
+C {devices/isource.sym} 130 -340 0 0 {name=I0 value=10u}
+C {devices/vdd.sym} 130 -390 0 0 {name=l10 lab=VDD}
+C {core/delay_cell/delay_cell.sym} 0 0 0 0 {name=x1 L_A=0.15 W_SW=1 W_PA=1 W_NA=1 W_FB=1}
+C {devices/res.sym} 60 -340 0 0 {name=R1
+value=0.5M
+footprint=1206
+device=resistor
+m=1}
+C {devices/lab_wire.sym} 130 -230 3 0 {name=l11 sig_type=std_logic lab=CNTL}

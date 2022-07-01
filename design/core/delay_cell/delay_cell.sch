@@ -76,7 +76,7 @@ N -0 -160 30 -160 {
 lab=nwell}
 C {sky130_fd_pr/pfet_01v8.sym} -20 -160 0 0 {name=M_PA
 L=L_A
-W=1
+W=W_PA
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -90,7 +90,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -20 -30 0 0 {name=M_NA
 L=L_A
-W=1
+W=W_NA
 nf=1 
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -122,8 +122,8 @@ C {devices/lab_pin.sym} 440 -170 1 0 {name=l10 sig_type=std_logic lab=nwell}
 C {devices/lab_pin.sym} 420 -10 3 0 {name=l11 sig_type=std_logic lab=vss}
 C {devices/lab_pin.sym} 440 -10 3 0 {name=l12 sig_type=std_logic lab=pwell}
 C {sky130_fd_pr/pfet_01v8.sym} 20 -380 0 1 {name=M_SW
-L=0.15
-W=1
+L=L_A
+W=W_SW
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -136,8 +136,8 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 160 -250 0 1 {name=M_FB
-L=0.15
-W=1
+L=L_A
+W=W_FB
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
