@@ -119,9 +119,4 @@ C {devices/gnd.sym} 610 100 0 0 {name=l9 lab=GND}
 C {devices/isource.sym} 130 -340 0 0 {name=I0 value=10u}
 C {devices/vdd.sym} 130 -390 0 0 {name=l10 lab=VDD}
 C {core/delay_cell/delay_cell.sym} 0 0 0 0 {name=x1 L_A=0.15 W_SW=1 W_PA=1 W_NA=1 W_FB=1}
-C {devices/res.sym} 60 -340 0 0 {name=R1
-value=0.5M
-footprint=1206
-device=resistor
-m=1}
 C {devices/lab_wire.sym} 130 -230 3 0 {name=l11 sig_type=std_logic lab=CNTL}

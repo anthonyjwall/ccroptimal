@@ -27,7 +27,7 @@ def prep_sim():
 
     # append the simulation command
     #yaaade_obj.set_sim_command('.tran 10p 10u')
-    yaaade_obj.set_sim_command('.tran 10p 10u')
+    yaaade_obj.netlist_sim_tran(10e-6, 10e-12)
 
     # Preparing the results variable
     results = []

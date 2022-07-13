@@ -1,3 +1,0 @@
-[submodule "env/analog_sim"]
-	path = env/analog_sim
-	url = git@github.com:yrrapt/analog_sim
