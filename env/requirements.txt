@@ -15,3 +15,4 @@ PyYAML
 QtPy
 scipy
 spyci
+tk
