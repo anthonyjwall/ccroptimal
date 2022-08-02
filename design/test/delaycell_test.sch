@@ -1,4 +1,4 @@
-v {xschem version=3.0.0 file_version=1.2 }
+v {xschem version=3.1.0 file_version=1.2 }
 G {}
 K {}
 V {}
@@ -30,20 +30,34 @@ N 610 80 610 100 {
 lab=GND}
 N 130 -200 130 -160 {
 lab=CNTL}
-N 130 -390 130 -370 {
+N 130 -470 130 -450 {
 lab=VDD}
-N 60 -380 60 -370 {
+N 60 -460 60 -450 {
 lab=VDD}
+N 60 -460 130 -460 {
+lab=VDD}
+N 60 -390 60 -380 {
+lab=#net1}
 N 60 -380 130 -380 {
-lab=VDD}
-N 60 -310 60 -300 {
+lab=#net1}
+N 130 -390 130 -380 {
+lab=#net1}
+N -20 -400 -20 -380 {
+lab=#net2}
+N -20 -400 20 -400 {
+lab=#net2}
+N -20 -440 -20 -430 {
+lab=GND}
+N -20 -440 20 -440 {
+lab=GND}
+N -20 -320 -20 -310 {
+lab=GND}
+N 130 -250 130 -220 {
 lab=CNTL}
-N 60 -300 130 -300 {
+N 130 -220 130 -200 {
 lab=CNTL}
-N 130 -300 130 -200 {
-lab=CNTL}
-N 130 -310 130 -300 {
-lab=CNTL}
+N 130 -380 130 -310 {
+lab=#net1}
 C {devices/vsource.sym} -220 -110 0 0 {name=V1 value=1.8}
 C {devices/vdd.sym} -220 -160 0 0 {name=l1 lab=VDD}
 C {devices/gnd.sym} -220 -60 0 0 {name=l2 lab=GND}
@@ -55,7 +69,7 @@ C {devices/vsource.sym} -200 30 0 0 {name=V2 value="PULSE(0 1.8 0 0.1p 0.1p 100n
 C {devices/gnd.sym} -200 80 0 0 {name=l7 lab=GND}
 C {devices/lab_wire.sym} -110 0 0 0 {name=l8 sig_type=std_logic lab=in}
 C {devices/opin.sym} 620 0 0 0 {name=p1 lab=out}
-C {devices/code.sym} -190 -580 0 0 {name=SIM only_toplevel=false value="
+C {devices/code.sym} 300 -390 0 0 {name=SIM only_toplevel=false value="
 .param temp=27
 
 
@@ -68,7 +82,7 @@ C {devices/code.sym} -190 -580 0 0 {name=SIM only_toplevel=false value="
 .save all 
 
 "}
-C {devices/code.sym} 50 -570 0 0 {name=TT_MODELS
+C {devices/code.sym} 540 -380 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -116,7 +130,12 @@ m=1
 value=100f
 device="ceramic capacitor"}
 C {devices/gnd.sym} 610 100 0 0 {name=l9 lab=GND}
-C {devices/isource.sym} 130 -340 0 0 {name=I0 value=10u}
-C {devices/vdd.sym} 130 -390 0 0 {name=l10 lab=VDD}
+C {devices/isource.sym} 130 -420 0 0 {name=I0 value=10u}
+C {devices/vdd.sym} 130 -470 0 0 {name=l10 lab=VDD}
 C {core/delay_cell/delay_cell.sym} 0 0 0 0 {name=x1 L_A=0.15 W_SW=1 W_PA=1 W_NA=1 W_FB=1}
-C {devices/lab_wire.sym} 130 -230 3 0 {name=l11 sig_type=std_logic lab=CNTL}
+C {devices/lab_wire.sym} 130 -220 3 0 {name=l11 sig_type=std_logic lab=CNTL}
+C {devices/vccs.sym} 60 -420 2 1 {name=G1 value=1e-6}
+C {devices/gnd.sym} -20 -430 0 0 {name=l15 lab=GND}
+C {devices/bsource.sym} -20 -350 0 0 {name=B1 VAR=V FUNC="V(CNTL) > 1.5 ? 1000*(V(CNTL)-1.5) : 0"}
+C {devices/gnd.sym} -20 -310 0 0 {name=l12 lab=GND}
+C {devices/vsource.sym} 130 -280 0 0 {name=Vprb_CNTL value=0}
