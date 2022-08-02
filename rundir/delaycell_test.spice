@@ -4,8 +4,11 @@
 V1 VDD GND 1.8
 V2 in GND PULSE(0 1.8 0 0.1p 0.1p 100n 200n)
 C1 out GND 100f m=1
-I0 VDD CNTL 10u
+I0 VDD net1 10u
 x1 CNTL VDD VDD GND GND in out delay_cell L_A=0.15 W_SW=1 W_PA=1 W_NA=1 W_FB=1
+G1 net1 VDD net2 GND 1e-6
+B1 net2 GND V = V(CNTL) > 1.5 ? 1000*(V(CNTL)-1.5) : 0
+Vprb_CNTL net1 CNTL 0
 **** begin user architecture code
 
 
@@ -85,11 +88,14 @@ XM_NA Va Ph_IN vss pwell sky130_fd_pr__nfet_01v8 L=L_A W=W_NA nf=1 ad='int((nf+1
 XM_SW net1 Ph_OUT I_IN nwell sky130_fd_pr__pfet_01v8 L=L_A W=W_SW nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM_FB Va Vb vdd nwell sky130_fd_pr__pfet_01v8 L=L_A W=W_FB nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM_FB Va Vb net2 nwell sky130_fd_pr__pfet_01v8 L=L_A W=W_FB nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-x_M_B vdd nwell Vb Va pwell vss sqar_inv W_CN=1 W_CP=1 L_SQ=1
-x_M_C vdd nwell Ph_OUT Vb pwell vss sqar_inv W_CN=1 W_CP=1 L_SQ=1
+x_M_B net4 nwell Vb Va pwell vss sqar_inv W_CN=1 W_CP=1 L_SQ=1
+x_M_C net3 nwell Ph_OUT Vb pwell vss sqar_inv W_CN=1 W_CP=1 L_SQ=1
+VPRB_SQC vdd net3 0
+VPRB_SQB vdd net4 0
+VPRB_FB vdd net2 0
 .ends
 
 
